@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rota Atlas | Rotanızı Kendiniz Çizin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <header>
+        <div class="logo">ROTA ATLAS</div>
+        <nav>
+            <a href="#">ROTALAR</a>
+            <a href="#manifesto">HAKKIMIZDA</a> <a href="#iletisim">İLETİŞİM</a>   </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>ROTANIZI<br>KENDİNİZ<br>ÇİZİN</h1>
+            <p>TÜRKİYE'NİN EN GÜZEL ROTALARINI KEŞFEDİN</p>
+        </div>
+    </section>
+
+    <section class="controls-container">
+        <div class="controls-left">
+            <input type="text" id="searchInput" placeholder="Rota ara...">
+            <select id="regionFilter">
+                <option value="">Tüm Bölgeler</option>
+                <option value="İç Anadolu">İç Anadolu</option>
+                <option value="Ege">Ege</option>
+                <option value="Marmara">Marmara</option>
+                <option value="Karadeniz">Karadeniz</option>
+                <option value="Güneydoğu Anadolu">Güneydoğu Anadolu</option>
+            </select>
+        </div>
+        <div class="controls-right-text">
+            <h3>Yolculuk, Varış Noktasından Daha Fazlasıdır</h3>
+        </div>
+    </section>
+
+    <section class="routes-section">
+        <h2>POPÜLER ROTALAR</h2>
+        <div id="routesContainer" class="routes-list">
+            </div>
+    </section>
+
+    <section id="manifesto" class="manifesto-section">
+        <div class="manifesto-left">
+            <h2>Yolculuk, Varış<br>Noktasından Daha<br>Fazlasıdır</h2>
+            <p>
+                Rota Atlas olarak, her yolculuğun bir hikaye olduğuna inanıyoruz. En 
+                iyi rotalar, bilinen yollardan saparak keşfedilir. Türkiye'nin 
+                dört bir yanındaki gizli köylere, antik kalıntılara, masmavi koylara 
+                ve unutulmuş yollara rehberlik ediyoruz. Rotanızı planlayın, ama 
+                sıraya teslim olmayın – kendi hikayenizi yazın.
+            </p>
+        </div>
+        <div class="manifesto-right">
+            <video autoplay muted loop playsinline class="manifesto-video">
+                <source src="yol.mp4.mp4" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+        </div>
+    </section>
+
+    <footer id="iletisim" class="main-footer">
+        <div class="footer-top">
+            <div class="footer-contact">
+                <h4>BİZE ULAŞIN</h4>
+                <p>Rota Atlas Platformu</p>
+                <p>İstanbul, Türkiye</p>
+                <p><a href="mailto:info@rotaatlas.com">info@rotaatlas.com</a></p>
+            </div>
+            <div class="footer-links">
+                <h4>BAĞLANTI</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-middle">
+            <h2 class="footer-giant-title">ROTAATLAS</h2>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2026 Rota Atlas. Tüm Hakları Saklıdır.</p>
+            <p class="coordinates">41.0082° N, 28.9784° E</p>
+        </div>
+    </footer>
+
+    <div id="routeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modalTitle">Yeni Rota Ekle</h3>
+            <form id="routeForm">
+                <input type="hidden" id="routeId">
+                <div class="form-group">
+                    <label for="routeName">Rota Adı:</label>
+                    <input type="text" id="routeName" required>
+                </div>
+                <div class="form-group">
+                    <label for="routeRegion">Bölge:</label>
+                    <input type="text" id="routeRegion" required>
+                </div>
+                <div class="form-group">
+                    <label for="routeImage">Görsel URL:</label>
+                    <input type="url" id="routeImage" placeholder="https://..." required>
+                </div>
+                <button type="submit" class="btn-submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="detailPanel" class="detail-panel">
+        <div class="detail-content">
+            <span class="close-detail-btn">← Geri Dön</span>
+            <div class="detail-body">
+                <div class="detail-img-box">
+                    <img id="detailImage" src="" alt="Rota Görseli">
+                </div>
+                <div class="detail-info-box">
+                    <span class="detail-badge">ARKEOLOJİK ROTA</span>
+                    <h2 id="detailTitle">Rota Başlığı</h2>
+                    <span id="detailRegion" class="detail-region-badge">Bölge</span>
+                    <div id="detailDescription" class="detail-text"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
